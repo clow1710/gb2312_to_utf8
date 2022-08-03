@@ -1,5 +1,4 @@
-#include "gb2312_codec.h"
-#include "unpack_message.h"
+#include "gb2312.h"
 #include <assert.h>
 #include <stdint.h>
 #include <stdio.h>
@@ -17,7 +16,7 @@ int main()
 
     printf("GB2312 转换到 UTF-8 测试：\n");
     uint8_t buff[MAX_BUFF_LEN] = {0};
-    size_t char_num = convert_gb2312_str_to_utf8(gb2312_str, ELEMENT_NUM_IN_ARRAY(gb2312_str) - 1, buff, MAX_BUFF_LEN);
+    size_t char_num = gb2312_str_to_utf8(gb2312_str, buff, MAX_BUFF_LEN);
     printf("共转换了%zu个字符。\n", char_num);
     print_utf8_str(buff);
 

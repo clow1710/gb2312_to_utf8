@@ -1,5 +1,4 @@
-#include <stddef.h>
-#include <stdint.h>
+#include "utf16_gb2312_map.h"
 
 // clang-format off
 
