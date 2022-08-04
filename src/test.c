@@ -4,24 +4,19 @@
 #include <stdio.h>
 
 
-#define ELEMENT_NUM_IN_ARRAY(arr) (sizeof(arr) / sizeof(arr[0]))
-#define MAX_BUFF_LEN              64
+#define MAX_BUFF_LEN 32
 
 static int print_utf8_str(const uint8_t *utf8_str);
 
 int main()
 {
-    //    const uint8_t utf8_str[]   = {0xE4, 0xBD, 0xA0, 0xE5, 0xA5, 0xBD, 0xEF, 0xBC, 0x8C, 0xE4, 0xB8, 0x96, 0xE7, 0x95, 0x8C, 0xEF, 0xBC, 0x81, 0x00};
-    const uint16_t gb2312_str[] = {0xC4E3, 0xBAC3, 0xA3AC, 0xCAC0, 0xBDE7, 0xA3A1, 0x0000};
+    const uint8_t gb2312_str[] = {0x31, 0x32, 0x41, 0x42, 0xC4, 0xE3, 0xCE, 0xD2, 0xA3, 0xA1, 0x21, 0x00};
 
     printf("GB2312 转换到 UTF-8 测试：\n");
     uint8_t buff[MAX_BUFF_LEN] = {0};
-    size_t char_num = gb2312_str_to_utf8(gb2312_str, buff, MAX_BUFF_LEN);
-    printf("共转换了%zu个字符。\n", char_num);
+    size_t  char_num           = transcode_str_gb2312_to_utf8(gb2312_str, buff, MAX_BUFF_LEN);
+    printf("共转换了 %zu 个字符。\n", char_num);
     print_utf8_str(buff);
-
-    printf("UTF-8 转换到 GB2312 测试：\n");
-
 
     return 0;
 }

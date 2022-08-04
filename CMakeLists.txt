@@ -3,6 +3,8 @@ project(test01 C)
 
 set(CMAKE_C_STANDARD 99)
 
+add_compile_options(-Wall -Os -s)
+
 file(GLOB_RECURSE all_source_file src/*.c)
 
 foreach(file ${all_source_file})
